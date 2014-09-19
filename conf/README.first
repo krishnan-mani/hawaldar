@@ -1,0 +1,8 @@
+copy over the example from under examples and rename it to config.yml
+Substitute the values in config.yml as applicable to your AWS account.
+
+Follow good security practices!
+- Create an IAM user with the appropriate user privileges
+- Generate access key credentials for this user and use them with hawaldar.
+
+END-OF-FILE
