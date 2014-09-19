@@ -5,7 +5,7 @@ require_relative '../lib/security_group_reader'
 describe SecurityGroupReader do
 
   before :all do
-    @reader = SecurityGroupReader.new(CONFIG)
+    @reader = SecurityGroupReader.new(CONFIG_AWS)
   end
 
   describe '#list_security_groups' do
