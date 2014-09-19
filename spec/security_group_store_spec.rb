@@ -32,12 +32,12 @@ describe SecurityGroupStore do
   describe '#save_security_group' do
 
     it 'saves security groups' do
-      sg = SecurityGroup.new('foo')
+      sg = SecurityGroup.new({:name => 'foo'})
       @store.save_security_group(sg)
 
       security_groups = @db.collection('security_groups')
       stored_group = security_groups.find_one
-      expect(stored_group['name']).to eq(sg.name)
+      expect(stored_group['name']).to eq(sg['name'])
     end
 
   end

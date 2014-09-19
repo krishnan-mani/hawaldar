@@ -9,21 +9,25 @@ class SecurityGroupReader
 
   def list_security_groups
     core_response = @client.describe_security_groups
-    core_response.data
+    core_response.data[:security_group_info].collect do |sg_info|
+      SecurityGroup.new(sg_info)
+    end
   end
 
 end
 
 class SecurityGroup
 
-  attr_reader :name
-
-  def initialize(name)
-    @name = name
+  def initialize(security_group_info)
+    @sg = security_group_info
   end
 
   def to_h
-    {:name => name}
+    @sg.dup
+  end
+
+  def [](key)
+    @sg[key.to_sym]
   end
 
 =begin
