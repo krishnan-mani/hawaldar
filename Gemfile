@@ -6,4 +6,6 @@ gem 'bson_ext'
 
 group :test do
   gem 'rspec'
+  gem 'vcr'
+  gem 'webmock'
 end
