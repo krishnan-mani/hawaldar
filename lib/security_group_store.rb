@@ -11,8 +11,16 @@ class SecurityGroupStore
   end
 
   def save_security_group(security_group)
+    ownerId = security_group[:ownerId]
+    groupId = security_group[:groupId]
+    find_query = { "ownerId" => ownerId, "groupId" => groupId }
+
     security_groups = @db.collection('security_groups')
-    security_groups.insert(security_group.to_h)
+    saved = security_groups.find_one(find_query)
+    saved_id = saved ? saved["_id"] : nil
+
+    doc = saved_id ? security_group.to_h.merge!(:_id => saved_id) : security_group.to_h
+    security_groups.save(doc)
   end
 
   def save_security_groups(ary_security_groups)
