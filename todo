@@ -1,1 +1,9 @@
-# Handle missing config.yml in spec/ with a friendly message
+# Handle missing cnfig.yml in spec/ with a friendly message
+# Implement all of the operations on security groups as available from aws-cli
+authorize-security-group-egress
+authorize-security-group-ingress
+create-security-group
+delete-security-group
+describe-security-groups
+revoke-security-group-egress
+revoke-security-group-ingress
